@@ -15,7 +15,7 @@ echo "---> Install App dependencies using Composer : composer.phar create-projec
 
 #cd drupal
 echo "---> Install App dependencies using Composer : composer.phar require drupal/devel:7.* ..."
-./composer.phar require drupal/devel:7.*
+#./composer.phar require drupal/devel:7.*
 
 #echo "---> Updating permissions on default site directory ..."
 #chmod -R a+rwx /opt/app-root/src/sites/default
