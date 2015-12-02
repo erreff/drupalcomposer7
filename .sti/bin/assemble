@@ -9,11 +9,12 @@ echo "---> Installing composer..."
 
 curl -sS https://getcomposer.org/installer | php
 
-echo "---> Install App dependencies using Composer ..."
+echo "---> Install App dependencies using Composer : composer.phar create-project ..."
 #./composer.phar install --no-interaction --no-ansi --no-scripts --optimize-autoloader
-./composer.phar create-project drupal-composer/drupal-project:7.x-dev drupal --stability dev --no-interaction
+./composer.phar create-project drupal-composer/drupal-project:7.x-dev . --stability dev --no-interaction
 
-cd drupal
+#cd drupal
+echo "---> Install App dependencies using Composer : composer.phar require drupal/devel:7.* ..."
 ./composer.phar require drupal/devel:7.*
 
 #echo "---> Updating permissions on default site directory ..."
