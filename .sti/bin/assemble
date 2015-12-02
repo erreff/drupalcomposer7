@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e
+
+echo "---> Installing application source..."
+cp -Rf /tmp/src/. ./
+
+echo "---> Installing composer..."
+
+curl -sS https://getcomposer.org/installer | php
+
+echo "---> Install App dependencies using Composer ..."
+#./composer.phar install --no-interaction --no-ansi --no-scripts --optimize-autoloader
+./composer.phar create-project drupal-composer/drupal-project:7.x-dev drupal --stability dev --no-interaction
+
+cd drupal
+./composer.phar require drupal/devel:7.*
+
+#echo "---> Updating permissions on default site directory ..."
+#chmod -R a+rwx /opt/app-root/src/sites/default
+#cp /opt/app-root/src/sites/default/default.settings.php /opt/app-root/src/sites/default/settings.php
+#chmod a+rwx /opt/app-root/src/sites/default/settings.php
